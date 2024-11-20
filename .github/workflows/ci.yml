@@ -1,7 +1,12 @@
 name: Maven Build and Test
 
 on:
-  workflow_dispatch:  # Allows triggering this workflow via GitHub API or manually from the GitHub UI
+  workflow_dispatch:
+    inputs:
+      testClass:
+        description: 'Test'
+        required: true
+        default: 'Test'
 
 jobs:
   build:
@@ -12,15 +17,15 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Set up JDK
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v2
       with:
-        java-version: '11'  # Use the appropriate Java version for your project
-        distribution: 'adoptopenjdk'
+        java-version: '11'  # Specify the Java version (e.g., 11 or 17)
+        distribution: 'adoptopenjdk'  # Choose the JDK distribution (e.g., adoptopenjdk, zulu, temurin)
 
     - name: Set up Maven
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v2
       with:
-        maven-version: '3.8.1'
+        maven-version: '3.8.1'  # Specify Maven version
 
     - name: Run Maven build
       run: mvn -Dtest=Test test  # Change "Test" to the class you want to run
