@@ -22,7 +22,7 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v2
         with:
-          java-version: '11'  # Use the Java version you require
+          java-version: '21'  # Use the Java version you require
 
       - name: Install dependencies
         run: mvn install -f pom.xml  # Assuming Maven is used for dependency management
