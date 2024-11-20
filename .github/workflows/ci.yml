@@ -1,0 +1,26 @@
+name: Maven Build and Test
+
+on:
+  workflow_dispatch:  # Allows triggering this workflow via GitHub API or manually from the GitHub UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'  # Use the appropriate Java version for your project
+        distribution: 'adoptopenjdk'
+
+    - name: Set up Maven
+      uses: actions/setup-java@v3
+      with:
+        maven-version: '3.8.1'
+
+    - name: Run Maven build
+      run: mvn -Dtest=Test test  # Change "Test" to the class you want to run
