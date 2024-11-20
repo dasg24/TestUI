@@ -4,13 +4,13 @@ on:
   workflow_dispatch:  # Allows you to trigger this workflow manually or via API
     inputs:
       username:
-        description: 'Enter Username'
+        description: 'dasg24'
         required: true
-        default: 'default_username'
+        default: 'dasg24'
       password:
-        description: 'Enter Password'
+        description: 'Satbhaya@12345'
         required: true
-        default: 'default_password'
+        default: 'Satbhaya@12345'
 
 jobs:
   run-selenium-automation:
