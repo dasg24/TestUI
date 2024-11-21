@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       testClass:
-        description: 'com.aretedge.TestClass'
+        description: 'com.aretedge.TestClass.java'
         required: true
         default: 'Test'
 
@@ -23,4 +23,4 @@ jobs:
         distribution: 'temurin'  # Updated JDK distribution
 
     - name: Run Maven build
-      run: mvn test -Dtest=${{ github.event.inputs.testClass }}  # Dynamically pass the testClass input
+      run: mvn -e clean test -Dtest=${{ github.event.inputs.testClass }}  # Dynamically pass the testClass input
