@@ -23,4 +23,4 @@ jobs:
         distribution: 'temurin'  # Updated JDK distribution
 
     - name: Run Maven build
-      run: mvn -e clean test -Dtest=${{ github.event.inputs.testClass }}  # Dynamically pass the testClass input
+      run: mvn -e clean test -Dtest=TestClass  # Dynamically pass the testClass input
