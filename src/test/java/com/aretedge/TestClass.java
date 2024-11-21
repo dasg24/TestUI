@@ -1,11 +1,8 @@
 package com.aretedge;
 
-import org.testng.annotations.Test;
-
 public class TestClass {
 
-	@Test
-	public static void test(String[] args) {
+	public static void test() {
 		System.out.println("Hello world!");
 	}
 
