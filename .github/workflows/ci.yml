@@ -1,0 +1,26 @@
+name: Maven Build and Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      testClass:
+        description: 'Name of the test class to run'
+        required: true
+        default: 'Test'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'  # Specify the Java version
+        distribution: 'temurin'  # Updated JDK distribution
+
+    - name: Run Maven build
+      run: mvn -Dtest=${{ github.event.inputs.testClass }} test  # Dynamically pass the testClass input
