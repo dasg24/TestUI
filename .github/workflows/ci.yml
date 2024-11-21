@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       testClass:
-        description: 'Test'
+        description: 'com.aretedge.Test'
         required: true
         default: 'Test'
 
